@@ -1,6 +1,6 @@
 import logo from './logo.svg';
 import './App.css';
-import { BrowserRouter, Routes,Route} from 'react-router-dom'
+import { Routes,Route, HashRouter} from 'react-router-dom'
 import { Home,NotFound } from './pages'
  
 
@@ -8,12 +8,12 @@ import { Home,NotFound } from './pages'
 
 function App() {
   return (
-  <BrowserRouter>
+  <HashRouter>
      <Routes>
         <Route exact path='/' element={<Home/>}/>
         <Route path='*' element={<NotFound/>}/> 
      </Routes>
-  </BrowserRouter>
+  </HashRouter>
   );
 }
 
