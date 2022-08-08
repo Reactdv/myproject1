@@ -1,18 +1,19 @@
 {
   "files": {
-    "main.css": "/myproject1/static/css/main.75a7ecab.css",
+    "main.css": "/myproject1/static/css/main.ccbe0aea.css",
     "main.js": "/myproject1/static/js/main.d44eeeb3.js",
     "static/js/787.871fc2b3.chunk.js": "/myproject1/static/js/787.871fc2b3.chunk.js",
     "static/media/avatar2.jpg": "/myproject1/static/media/avatar2.9b4aa9d6e0e51b771314.jpg",
+    "static/media/money-heist1.jpg": "/myproject1/static/media/money-heist1.984e679d0dac264a6941.jpg",
     "static/media/netflix-logo.png": "/myproject1/static/media/netflix-logo.301fa8d7881b6fb31afc.png",
     "static/media/logo.svg": "/myproject1/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg",
     "index.html": "/myproject1/index.html",
-    "main.75a7ecab.css.map": "/myproject1/static/css/main.75a7ecab.css.map",
+    "main.ccbe0aea.css.map": "/myproject1/static/css/main.ccbe0aea.css.map",
     "main.d44eeeb3.js.map": "/myproject1/static/js/main.d44eeeb3.js.map",
     "787.871fc2b3.chunk.js.map": "/myproject1/static/js/787.871fc2b3.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.75a7ecab.css",
+    "static/css/main.ccbe0aea.css",
     "static/js/main.d44eeeb3.js"
   ]
 }
