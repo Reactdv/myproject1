@@ -44,7 +44,7 @@ const FeaturedMovie = () => {
                 <p>Watchlist</p>
               </button>
             </div>
-            <p>
+            <p className="featuredMovie-content">
               The series, both a remake and spin-off/continuation of the Spanish
               TV drama, follows the storyline and characters of the original.
               "The Professor" (Yoo Ji-tae), a strategist criminal mastermind,
