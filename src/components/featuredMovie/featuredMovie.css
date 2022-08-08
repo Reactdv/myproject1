@@ -129,7 +129,7 @@
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-start;
   width: 100%;
 }
 
@@ -218,43 +218,55 @@
     padding: 2rem 1rem;
   }
 
-  .featured-modal-content__container h1{
+  .featured-modal-content__container h1 {
     font-size: 16px;
   }
 }
 
 @media screen and (max-width: 550px) {
+  .featuredMovie-modal__container {
+    padding: 10px;
+  }
+
   .featuredMovie-content__container h1 {
     font-size: 17px;
   }
 
-
-   .featured-modal-content__container h1{
+  .featured-modal-content__container h1 {
     font-size: 13px;
   }
 
-  .featured-modal-content__container h5{
+  .featured-modal-content__container h5 {
     font-size: 8px;
   }
-
 }
 
-@media screen and (max-width:400px){
-    .featuredMovie-modal-addToWatchlist__container{
-        font-size: 8px;
-        padding: 0.2rem;
+@media screen and (max-width: 400px) {
+  .featuredMovie-modal-addToWatchlist__container {
+    font-size: 8px;
+    padding: 0.2rem;
 
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-direction: row;
-        gap: 2px;
-    }
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    gap: 2px;
+  }
 
-    .featuredMovie-modal-addToWatchlist__container{
-        padding: 0.2rem;
-    }
-    .featured-modal-content__container .featuredMovie-content{
-        display: none;
-    }
+  .featuredMovie-watchNow__btn{
+    padding: 6px 9px;
+    font-size: 10px;
+  }
+
+  .featured-modal-content__container > div {
+    flex-direction: column;
+  }
+ 
+
+  .featuredMovie-modal-addToWatchlist__container {
+  display: none;
+  }
+  .featured-modal-content__container .featuredMovie-content {
+    display: none;
+  }
 }
