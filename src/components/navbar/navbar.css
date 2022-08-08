@@ -95,6 +95,7 @@
     .navbar-searchbar input{
         font-size: 13px;
         padding: 6px;
+        display: none;
     }
 }
 
