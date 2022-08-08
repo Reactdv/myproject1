@@ -135,6 +135,9 @@
     gap: 1rem;
     justify-content: flex-start;
     align-items: flex-start;
+}
+
+.navbar-modal__container ul li{
     cursor: pointer;
 }
 
