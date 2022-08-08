@@ -6,6 +6,10 @@ import avatar2 from '../../assets/avatar2.jpg'
 import { BsSearch,BsCaretDownFill,BsBell } from 'react-icons/bs'
 
 const Navbar = () => {
+ const [isToggle,setIsToggle] = React.useState(false)
+
+ const handleToggle =()=> setIsToggle(toggled=>!toggled)
+
   return (
     <div className='navbar__container'>
         <div className="navbar-logo__container">
@@ -30,9 +34,25 @@ const Navbar = () => {
                 <img src={avatar2} alt="" />
             </div>
             <div className="navbar-arrow__down">
-               <BsCaretDownFill className='carret__down'/>
+               <BsCaretDownFill 
+               onClick={handleToggle}
+               id={isToggle && 'toggle'}
+               className='carret__down toggle'/>
             </div>
           </div>
+          {
+            isToggle &&
+
+          <div className="navbar-modal__container">
+            <ul>
+                <li>Account</li>
+                <li>Subscriptions</li>
+                <li>Watchlist</li>
+                <li>Settings</li>
+                <li>Balance</li>
+            </ul>
+          </div>
+          }
         </div>
     </div>
   )
