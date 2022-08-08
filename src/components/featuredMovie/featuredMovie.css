@@ -1,0 +1,210 @@
+.featuredMovie__container {
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url("../../assets/money-heist1.jpg");
+  background-attachment: fixed;
+  position: relative;
+  min-height: 150vh;
+  padding: 4rem 6rem;
+}
+
+.featuredMovie-content__container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 2rem;
+  position: relative;
+  z-index: 100;
+}
+
+.featuredMovie-content__container h1 {
+  text-transform: capitalize;
+}
+
+.featuredMovie-video__container {
+  position: absolute;
+  inset: 0;
+  height: 100vh;
+  width: 100%;
+}
+
+.featuredMovie-video__container video {
+  width: 100%;
+}
+
+.toggle__play {
+  display: none;
+}
+
+.featuredMovie-content__container h1,
+.featuredMovie-content__container p {
+  color: var(--clr-white);
+}
+
+.featuredMovie-content__container h1 {
+  font-size: 3rem;
+}
+
+.featuredMovie-content__container p {
+  font-size: 13px;
+}
+
+.featuredMovie-btn__container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  cursor: pointer;
+}
+
+.featuredMovie-btn__container .featuredMovie-play__btn,
+.featuredMovie-btn__container .featuredMovie-info__btn {
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  border: none;
+  outline: none;
+  background: var(--clr-white);
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+}
+
+.featuredMovie-btn__container .featuredMovie-info__btn {
+  background: #6b7280;
+}
+
+.featuredMovie-btn__icon,
+.featuredMovie-btn__icon2 {
+  font-size: 20px;
+}
+
+.featuredMovie-btn__icon2 {
+  color: var(--clr-white);
+}
+
+.featuredMovie-play__btn p {
+  color: var(--clr-dark);
+}
+
+.featuredMovie-info__btn p {
+  color: var(--clr-white);
+}
+
+.featuredMovie-modal__container {
+  left: 50%;
+  transform: translate(-50%);
+  width: 60vw;
+  padding: 2rem 4rem;
+  position: absolute;
+  background: #27272a;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  color: var(--clr-white);
+}
+
+.featured-modal-content__container:focus {
+  background: red;
+}
+
+.featuredMovie-modal-img__container img {
+  width: 100%;
+  height: 100%;
+  border-radius: 5px;
+}
+
+.featured-modal-content__container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.7rem;
+}
+
+.featured-modal-content__container > div {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.featured-modal-content__container > div div:first-child {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 0.5rem;
+}
+
+.featured-modal-content__container h1,
+.featured-modal-content__container h5 {
+  text-transform: capitalize;
+}
+
+.featured-modal-content__container h5 {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.featured-modal-ratings__container {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+}
+
+.featured-modal-content__container p {
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.featuredMovie-watchNow__btn {
+  padding: 5px;
+  border-radius: 5px;
+}
+
+.featuredMovie-modal-addToWatchlist__container {
+  display: flex;
+  flex-direction: row;
+  gap: 0.5rem;
+  padding: 0.5rem;
+  right: 2rem;
+  bottom: 0;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.featuredMovie-modal-addToWatchlist__container p {
+  color: var(--clr-dark);
+}
+
+@media screen and (max-width: 1000px) {
+  .featuredMovie__container {
+    height: 100vh;
+  }
+
+  .featuredMovie-content__container h1 {
+    font-size: 40px;
+  }
+}
+
+@media screen and (max-width: 850px) {
+  .featuredMovie-content__container h1 {
+    font-size: 30px;
+  }
+}
+
+@media screen and (max-width: 650px) {
+  .featuredMovie__container {
+    padding: 4rem 2rem;
+  }
+}
+
+@media screen and (max-width: 550px) {
+  .featuredMovie-content__container h1 {
+    font-size: 17px;
+  }
+}
