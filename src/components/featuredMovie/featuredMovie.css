@@ -104,8 +104,20 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  z-index: 1000;
+  z-index: 200;
   color: var(--clr-white);
+  animation: featuredMovieModalScale 700ms ease forwards;
+}
+
+@keyframes featuredMovieModalScale {
+  from {
+    left: 50%;
+    transform: scale(0) translate(-50%);
+  }
+
+  to {
+    transform: scale(1) translate(-50%);
+  }
 }
 
 .featured-modal-content__container:focus {
@@ -253,7 +265,7 @@
     gap: 2px;
   }
 
-  .featuredMovie-watchNow__btn{
+  .featuredMovie-watchNow__btn {
     padding: 6px 9px;
     font-size: 10px;
   }
@@ -261,10 +273,9 @@
   .featured-modal-content__container > div {
     flex-direction: column;
   }
- 
 
   .featuredMovie-modal-addToWatchlist__container {
-  display: none;
+    display: none;
   }
   .featured-modal-content__container .featuredMovie-content {
     display: none;

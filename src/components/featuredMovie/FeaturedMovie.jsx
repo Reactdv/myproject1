@@ -12,15 +12,34 @@ import moneyHeist2 from "../../assets/money-heist2.jpeg";
 
 const FeaturedMovie = () => {
   const [isPlay, setIsPlay] = React.useState(false);
-  const [isInfo, setIsInfo] = React.useState(false);
-  const featuredMovieModalRef = React.useRef(null);
+  const [isInfoOpen, setIsInfoOpen] = React.useState(false);
+  const featuredMovieModalRef = React.useRef();
 
   const handlePlay = () => setIsPlay((played) => !played);
+   
+  React.useEffect(()=>{
+  const checkIfClickOutside = (e)=>{
+     if (
+       isInfoOpen &&
+       featuredMovieModalRef.current &&
+       !featuredMovieModalRef.current.contains(e.target)
+     ) {
+       setIsInfoOpen(false);
+     }
 
+  }
+  document.addEventListener("mousedown", checkIfClickOutside);
+
+  return () => {
+    // Cleanup the event listener
+    document.removeEventListener("mousedown", checkIfClickOutside);
+  };
+  },[isInfoOpen])
+  
   const renderFeaturedMovieModal = () => {
-    if (isInfo)
+    if (isInfoOpen)
       return (
-        <div className="featuredMovie-modal__container">
+        <div ref={featuredMovieModalRef} className="featuredMovie-modal__container">
           <div className="featuredMovie-modal-img__container">
             <img src={moneyHeist2} alt="" />
           </div>
@@ -68,7 +87,10 @@ const FeaturedMovie = () => {
         </div>
       )}
       {renderFeaturedMovieModal()}
-      <div className="featuredMovie-content__container">
+      <div
+        
+        className="featuredMovie-content__container"
+      >
         <h1>Money Heist:Korea- Joint economic area</h1>
         <p>
           Disguised under the shadow of a mask, a crew of desperados
@@ -88,9 +110,7 @@ const FeaturedMovie = () => {
             <p>Play</p>
           </button>
           <button
-            onClick={() => {
-              setIsInfo((t) => !t);
-            }}
+            onClick={() => setIsInfoOpen(true)}
             className="featuredMovie-info__btn"
           >
             <BsInfoCircle className="featuredMovie-btn__icon2" />
