@@ -3,7 +3,9 @@ import "./popularMovie.css";
 
 const PopularMovie = () => {
   return (
-    <div>PopularMovie</div>
+    <div className="popularMovie__container">
+      
+    </div>
   )
 };
 

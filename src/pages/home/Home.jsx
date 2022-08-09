@@ -1,13 +1,13 @@
 import React from 'react'
 import './home.css'
-import { Navbar,FeaturedMovie,PopularMovie } from '../../components'
+import { Navbar,FeaturedMovie, MovieCarousels } from '../../components'
 
 const Home = () => {
   return (
     <div className='home__container'>
        <Navbar/>
-       <FeaturedMovie/>
-       <PopularMovie/>
+        <FeaturedMovie/>
+        <MovieCarousels/> 
        
     </div>
   )

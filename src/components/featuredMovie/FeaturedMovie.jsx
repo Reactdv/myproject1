@@ -16,30 +16,32 @@ const FeaturedMovie = () => {
   const featuredMovieModalRef = React.useRef();
 
   const handlePlay = () => setIsPlay((played) => !played);
-   
-  React.useEffect(()=>{
-  const checkIfClickOutside = (e)=>{
-     if (
-       isInfoOpen &&
-       featuredMovieModalRef.current &&
-       !featuredMovieModalRef.current.contains(e.target)
-     ) {
-       setIsInfoOpen(false);
-     }
 
-  }
-  document.addEventListener("mousedown", checkIfClickOutside);
+  React.useEffect(() => {
+    const checkIfClickOutside = (e) => {
+      if (
+        isInfoOpen &&
+        featuredMovieModalRef.current &&
+        !featuredMovieModalRef.current.contains(e.target)
+      ) {
+        setIsInfoOpen(false);
+      }
+    };
+    document.addEventListener("mousedown", checkIfClickOutside);
 
-  return () => {
-    // Cleanup the event listener
-    document.removeEventListener("mousedown", checkIfClickOutside);
-  };
-  },[isInfoOpen])
-  
+    return () => {
+      // Cleanup the event listener
+      document.removeEventListener("mousedown", checkIfClickOutside);
+    };
+  }, [isInfoOpen]);
+
   const renderFeaturedMovieModal = () => {
     if (isInfoOpen)
       return (
-        <div ref={featuredMovieModalRef} className="featuredMovie-modal__container">
+        <div
+          ref={featuredMovieModalRef}
+          className="featuredMovie-modal__container"
+        >
           <div className="featuredMovie-modal-img__container">
             <img src={moneyHeist2} alt="" />
           </div>
@@ -87,15 +89,12 @@ const FeaturedMovie = () => {
         </div>
       )}
       {renderFeaturedMovieModal()}
-      <div
-        
-        className="featuredMovie-content__container"
-      >
-        <h1>Money Heist:Korea- Joint economic area</h1>
-        <p>
+      <div className="featuredMovie-content__container">
+        <h1  className={isPlay && 'hide'}>Money Heist:Korea- Joint economic area</h1>
+        <p className={isPlay && 'hide'}>
           Disguised under the shadow of a mask, a crew of desperados
           <br />
-          band together under the leadership of a criminal mastermind known{" "}
+          band together under the leadership of a criminal mastermind known
           <br />
           only as "The professor" to pull off the biggest heist korean has ever
           seen

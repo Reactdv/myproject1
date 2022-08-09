@@ -1,3 +1,8 @@
+.hide{
+  display: none;
+}
+
+
 .featuredMovie__container {
   background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
     url("../../assets/money-heist1.jpg");
