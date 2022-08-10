@@ -4,9 +4,9 @@ const rapidApi = (q) => {
   const options = {
     method: "GET",
     url: "https://online-movie-database.p.rapidapi.com/auto-complete",
-    params: { q:q },
+    params: { q: q },
     headers: {
-      "X-RapidAPI-Key": "6e21db1665msh503d1c715335f99p1cb9a6jsnd8f1a257869c",
+      "X-RapidAPI-Key": "81ee9ae9camshbedb6efba891bc1p1ecb2ajsn54d6e5ef148b",
       "X-RapidAPI-Host": "online-movie-database.p.rapidapi.com",
     },
   };

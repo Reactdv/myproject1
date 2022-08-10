@@ -7,12 +7,7 @@ import { useDispatch } from "react-redux";
 import { getMovies } from "./utils/redux/actions/actions";
 
 function App() {
-  const dispatch = useDispatch();
-
-  React.useEffect(() => {
-    const a = 'suicied squad'
-    dispatch(getMovies(a));
-  }, [dispatch]);
+ 
   return (
     <HashRouter>
       <Routes>

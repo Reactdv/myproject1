@@ -1,0 +1,90 @@
+.popularMovie__container {
+  overflow: hidden;
+  flex-direction: row;
+  display: flex;
+  width: 90%;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  width: 100%;
+  background: var(--bg-dark);
+  padding: 2rem 4rem;
+}
+
+.popularMovie-left__container,
+.popularMovie-center__container,
+.popularMovie-right__container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+
+  flex: 1;
+}
+
+.popularMovie-center__container {
+  display: flex;
+  flex: 2;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  overflow: hidden;
+}
+
+.popularMovie-content{
+  transition: all 700ms ease;
+}
+
+.popularMovie-content img {
+  aspect-ratio: 1/1;
+  width: 200px;
+}
+
+.popularMovie-left__container,
+.popularMovie-right__container {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  z-index: 2000;
+}
+
+.popularMovie-left__container {
+  left: 1rem;
+}
+
+.popularMovie-right__container {
+  right: 1rem;
+}
+
+.popularMovie-left__container .popularMovie-left__icon,
+.popularMovie-right__container .popularMovie-right__icon {
+  font-size: 50px;
+  color: var(--clr-white);
+}
+
+#slide_to_left {
+  animation: slide_to_left 400ms ease forwards;
+}
+
+@keyframes slide_to_left {
+  from {
+    transform: translate(0);
+  }
+  to {
+    transform: translate(-100%);
+  }
+}
+
+#slide_to_right {
+  animation: slide_to_right 400ms ease forwards;
+}
+
+@keyframes slide_to_right {
+  from {
+    transform: translate(0);
+  }
+  to {
+    transform: translate(100%);
+  }
+}
