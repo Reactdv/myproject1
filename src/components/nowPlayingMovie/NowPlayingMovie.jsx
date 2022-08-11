@@ -1,18 +1,18 @@
 import React from "react";
-import "./popularMovie.css";
+import "./nowPlayingMovie.css";
 import { useDispatch, useSelector } from "react-redux";
-import { getMovies } from "../../utils/redux/actions/actions";
+import { getMovies, getNowPlaying } from "../../utils/redux/actions/actions";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 import axios from "axios";
 
 const imgPath = "https://image.tmdb.org/t/p/original";
 
-const PopularMovie = () => {
-  const movie = getMovies("popular");
+const NowPlayingMovie = () => {
+  const movie = getNowPlaying("top_rated");
   const [slider, setSlider] = React.useState(0);
   const [isSlide, setIsSlide] = React.useState(false);
-  const popularMovies = useSelector((state) => state.movies.results);
-
+  const [nowPlayingMovies, setNowPlayingMovies] = React.useState([])
+ 
   console.log(movie);
   const dispatch = useDispatch();
 
@@ -21,14 +21,21 @@ const PopularMovie = () => {
     console.log(subscribe);
 
     if (subscribe) {
-      dispatch(movie);
+      const getData = async () => {
+        return await axios
+          .get(
+            "https://api.themoviedb.org/3/movie/now_playing?api_key=6db570f91afb8be515fb7e766b64e53c&page=2"
+          )
+          .then((res) => setNowPlayingMovies(Object.values(res.data.results)));
+      };
+      getData();
     }
 
     return () => (subscribe = false);
   }, [dispatch]);
 
-  if (popularMovies === undefined) return <h1>no data</h1>;
-  console.log(isSlide, slider, popularMovies.length - 1);
+  if (nowPlayingMovies === undefined) return <h1>no data</h1>;
+  console.log(isSlide, slider, nowPlayingMovies.length - 1);
 
   const chevronLeft = () => {
     setIsSlide(true);
@@ -36,7 +43,7 @@ const PopularMovie = () => {
     setSlider((state) => state - 1);
 
     if (slider <= 0) {
-      setSlider((state) => (state = popularMovies.length - 6));
+      setSlider((state) => (state = nowPlayingMovies.length - 6));
     }
   };
 
@@ -45,14 +52,14 @@ const PopularMovie = () => {
 
     setSlider((state) => state + 1);
 
-    if (slider >= popularMovies.length - 5) {
+    if (slider >= nowPlayingMovies.length - 5) {
       setSlider(0);
     }
   };
 
   return (
     <div style={{ backgroundColor: "black" }}>
-      <h2 style={{ color: "white", marginLeft: "4rem" }}> Popular</h2>
+      <h2 style={{ color: "white", marginLeft: "4rem" }}> Now in theater</h2>
       <div className="popularMovie__container">
         <div className="popularMovie-left__container">
           <FaChevronLeft
@@ -61,7 +68,7 @@ const PopularMovie = () => {
           />
         </div>
         <div className="popularMovie-center__container">
-          {popularMovies.map((item, index) => (
+          {nowPlayingMovies.map((item, index) => (
             <div
               style={{
                 transform: `translate(-${slider * 100}%)`,
@@ -84,4 +91,4 @@ const PopularMovie = () => {
   );
 };
 
-export default PopularMovie;
+export default NowPlayingMovie;
