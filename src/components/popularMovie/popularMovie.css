@@ -8,7 +8,7 @@
   position: relative;
   width: 100%;
   background: var(--bg-dark);
-  padding: 2rem 4rem;
+  padding: 1rem 4rem;
 }
 
 .popularMovie-left__container,
@@ -33,11 +33,13 @@
 
 .popularMovie-content{
   transition: all 700ms ease;
+ 
 }
 
 .popularMovie-content img {
-  aspect-ratio: 1/1;
+  aspect-ratio: 16/9;
   width: 200px;
+  
 }
 
 .popularMovie-left__container,

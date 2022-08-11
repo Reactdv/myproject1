@@ -4,8 +4,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { getMovies } from "../../utils/redux/actions/actions";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 
-const PopularMovie = () => {
-  const movie = getMovies("spiderman");
+const PopularMovie = ({ movie }) => {
+  const movies = getMovies(movie);
   const [slider, setSlider] = React.useState(0);
   const [isSlide, setIsSlide] = React.useState(false);
   const popularMovies = useSelector((state) => state.movies.d);
@@ -13,10 +13,17 @@ const PopularMovie = () => {
   console.log(isSlide);
   const dispatch = useDispatch();
   const ref = React.useRef();
-  console.log(popularMovies);
+  console.log(popularMovies,movie);
 
   React.useEffect(() => {
-    dispatch(movie);
+    let subscribe = true;
+    console.log(subscribe)
+
+    if (subscribe) {
+      dispatch(movies);
+    }
+
+    return () => (subscribe = false);
   }, [dispatch]);
 
   if (popularMovies === undefined) return <h1>no data</h1>;

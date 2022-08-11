@@ -8,8 +8,10 @@ const MovieCarousels = () => {
 
   return (
     <div className="movieCarousels__container">
-      <PopularMovie />
-      <PopularSeries />
+      <PopularMovie movie='squid game'/>
+      <PopularMovie movie='avengers'/>
+      <PopularMovie movie='money heist'/>
+      <PopularSeries movie='orphan'/>
     </div>
   );
 };

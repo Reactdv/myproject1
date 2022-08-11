@@ -6,7 +6,7 @@ export const getMovies = (q) =>
   async (dispatch) => {
     try {
       const { data } = await api.fetchMovies(q);
-
+       console.log(data)
       dispatch({
         type: FETCH_MOVIES,
         payload: data,
