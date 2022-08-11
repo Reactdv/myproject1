@@ -1,0 +1,40 @@
+.getStarted__container {
+  padding: 4rem 6rem;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+    url("../../assets/movies-bg.jpg");
+
+  overflow: hidden;
+}
+
+.getStarted-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: var(--clr-white);
+  gap: 1rem;
+  z-index: 100;
+}
+
+.getStarted-input__container input,
+.getStarted-input__container button {
+  position: relative;
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  outline: none;
+  border: 1px solid black;
+  z-index: 100;
+}
+
+.getStarted-input__container button {
+  background: var(--clr-variant);
+  color: var(--clr-white);
+  border: none;
+  cursor: pointer;
+  padding: 0.6rem 1rem;
+}

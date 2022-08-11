@@ -8,6 +8,8 @@
 }
 
 :root{
+  --clr-variant:#ef4444
+;
   --clr-white:white;
   --bg-dark: rgba(0,0,0,1);
   --ff:'Open Sans',

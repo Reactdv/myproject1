@@ -1,6 +1,6 @@
 import React from 'react'
 import './home.css'
-import { Navbar,FeaturedMovie, MovieCarousels } from '../../components'
+import { Navbar,FeaturedMovie, MovieCarousels,GetStarted } from '../../components'
 
 const Home = () => {
   return (
@@ -8,6 +8,7 @@ const Home = () => {
        <Navbar/>
         <FeaturedMovie/>
         <MovieCarousels/> 
+        <GetStarted/> 
        
     </div>
   )

@@ -31,18 +31,15 @@
   overflow: hidden;
 }
 
-.popularMovie-content{
+.popularMovie-content {
   transition: all 700ms ease;
   background: green;
-  
-  
 }
 
 .popularMovie-content img {
   aspect-ratio: 16/9;
   width: 200px;
-  object-fit: cover;
-  
+  object-fit: fill;
 }
 
 .popularMovie-left__container,
