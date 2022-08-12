@@ -1,0 +1,74 @@
+.signup__container {
+  padding: 3rem 3rem;
+  background: var(--bg-dark);
+  color: var(--clr-white);
+}
+
+.signup-content {
+  display: flex;
+  gap: 1rem;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.signup-content form {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+.signup-content form div {
+  position: relative;
+}
+
+.signup-content form input,
+.signup-content form button {
+  font-size: 16px;
+  padding: 0.5rem 1rem;
+  outline: none;
+  border-radius: 5px;
+  border: none;
+}
+.inputRef {
+  border: 1px solid red;
+}
+
+.inputRef::placeholder {
+  color: red;
+}
+
+.signup-content button {
+  width: 100%;
+  background: var(--clr-variant);
+  color: var(--clr-white);
+  cursor: pointer;
+}
+
+.signup__alreadyHaveAccount {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 1rem;
+}
+
+.signup__alreadyHaveAccount h6 {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.signup__icon {
+  position: absolute;
+  color: var(--bg-dark);
+  cursor: pointer;
+}
+
+.password__eye {
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  margin: 0 10px;
+  font-size: 25px;
+}
