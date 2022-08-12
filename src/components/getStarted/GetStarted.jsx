@@ -11,9 +11,9 @@ const GetStarted = () => {
         <h3>Watch anywhere Cancel anytime</h3>
         <h5>Get Ready to watch?. Enter your email to create an account</h5>
         <div className="getStarted-input__container">
-          <input type="email" />
+          <input placeholder="Enter your email"   type="email" />
           <button>
-            <Link>Get Started</Link>
+            <Link to="/auth/signup">Get Started</Link>
           </button>
         </div>
       </div>

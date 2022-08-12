@@ -2,9 +2,9 @@
   padding: 3rem 3rem;
   background: var(--bg-dark);
   color: var(--clr-white);
-  animation: signup 1000ms ease forwards;
+  /* animation: signup 1000ms ease forwards; */
 }
-
+/* 
 @keyframes signup {
   from {
     display: none;
@@ -14,7 +14,7 @@
     display: flex;
     transform: scale(1);
   }
-}
+} */
 
 .signup-content {
   display: flex;

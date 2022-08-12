@@ -42,14 +42,29 @@ const Signup = () => {
     e.preventDefault();
     if (user.username === "") {
       usernameRef.current.classList.toggle("inputRef");
-      toast("username cant be empty");
-    }
-    if (user.password !== user.confirmPassword) {
+      toast.error(" Invalid username!", {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      });
+    } else if (user.password !== user.confirmPassword) {
       passwordRef.current.classList.add("inputRef");
-      toast("password does not match");
+      toast.error("password does not match!", {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      });
     } else {
       dispatch(isAuth(true));
-      toast("registered successfully");
+      toast.success("registered successfully");
 
       setUser({
         username: "",
