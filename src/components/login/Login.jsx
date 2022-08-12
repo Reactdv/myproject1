@@ -18,7 +18,10 @@ const login = () => {
           <h5>New to Netflix?</h5>
           <Link to="/auth/signup"> Signup</Link>
         </div>
-        <p>This page is protected by reCAPTCHA <br/>to ensure your not a robot Learn more</p>
+        <p>
+          This page is protected by reCAPTCHA <br />
+          to ensure your not a robot Learn more
+        </p>
       </div>
     </div>
   );

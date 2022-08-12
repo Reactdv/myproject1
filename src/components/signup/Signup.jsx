@@ -4,6 +4,8 @@ import { Link } from "react-router-dom";
 import { AiFillEye, AiFillEyeInvisible } from "react-icons/ai";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { isAuth } from "../../utils/redux/actions/actions";
+import { useDispatch } from "react-redux";
 
 const Signup = () => {
   const [isPasswordShow, setIsPasswordShow] = React.useState(false);
@@ -15,6 +17,7 @@ const Signup = () => {
     password: "",
     confirmPassword: "",
   });
+  const dispatch = useDispatch();
   const togglePasswordEye = () => setIsPasswordShow((show) => !show);
 
   const renderPasswordEye = () => {
@@ -45,7 +48,9 @@ const Signup = () => {
       passwordRef.current.classList.add("inputRef");
       toast("password does not match");
     } else {
+      dispatch(isAuth(true));
       toast("registered successfully");
+
       setUser({
         username: "",
         email: "",

@@ -1,6 +1,5 @@
 import * as api from "../../apis";
-
-import { FETCH_MOVIES,NOW_PLAYING_MOVIE } from "../actionTypes/actionTypes";
+import { FETCH_MOVIES,NOW_PLAYING_MOVIE,ISAUTH } from "../actionTypes/actionTypes";
 
 export const getMovies = (movieStatus) => 
   async (dispatch) => {
@@ -29,4 +28,12 @@ export const getNowPlaying = (movieStatus) =>
       console.log(e);
     }
   };
+
+
+  export const isAuth =(boolean) => (
+    {
+      type: ISAUTH,
+       payload: boolean
+    }
+  )
 

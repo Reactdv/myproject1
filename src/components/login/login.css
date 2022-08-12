@@ -10,6 +10,18 @@
   gap: 1rem;
   background: var(--bg-dark);
   padding: 2.5rem 2rem;
+  animation: login 1000ms ease forwards;
+}
+
+@keyframes login {
+  from {
+    display: none;
+    transform: scale(0);
+  }
+  to {
+    display: flex;
+    transform: scale(1);
+  }
 }
 
 .login__username,
