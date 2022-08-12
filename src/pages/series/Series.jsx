@@ -1,5 +1,5 @@
 import React from "react";
-import { Banner } from "../../components";
+import { Banner,Carousel } from "../../components";
 
 const Series = () => {
   return (

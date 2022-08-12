@@ -44,7 +44,8 @@ const Banner = ({ movieStatus }) => {
         />
         <div>
           <h1>{movies?.title || movies?.original_title}</h1>
-          <p>{truncate(movies?.overview, 90)}</p>
+          {/* <p>{truncate(movies?.overview, 90)}</p> */}
+          <p>{movies.overview}</p>
           <span className="banner-ratings">
             <p>Ratings :</p>
             <p>{movies.vote_average}</p>

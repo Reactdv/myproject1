@@ -36,6 +36,9 @@
   transform: translateY(-50%);
   color: var(--clr-white);
   z-index: 10;
+
+  width: 50vw;
+  gap: 1rem;
 }
 
 .banner-content div p {

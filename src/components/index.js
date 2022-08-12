@@ -9,5 +9,6 @@ export { default as GetStarted } from "./getStarted/GetStarted";
 export { default as Login } from "./login/Login";
 export { default as Signup } from "./signup/Signup";
 export { default as Banner } from "./banner/Banner";
+export { default as Carousel } from "./carousel/Carousel";
 
 export { default as MovieCarousels } from "./movieCarousels/MovieCarousels";
