@@ -1,0 +1,49 @@
+.login__container {
+  color: var(--clr-white);
+}
+
+.login__content {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: fs;
+  gap: 1rem;
+  background: var(--bg-dark);
+  padding: 2.5rem 2rem;
+}
+
+.login__username,
+.login__password,
+.login__btn {
+  padding: 0.5rem 1rem;
+  font-size: 16px;
+  outline: none;
+}
+
+.login__btn {
+  padding: 0.5rem 1rem;
+  background: var(--clr-variant);
+  color: var(--clr-white);
+  border: none;
+  width: 100%;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.login__newToNetflix {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 1rem;
+}
+
+.login__newToNetflix h5 {
+  font-weight: normal;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.login__content p {
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 12px;
+}
