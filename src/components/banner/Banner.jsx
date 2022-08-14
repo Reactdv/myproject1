@@ -13,6 +13,14 @@ const Banner = ({ movieStatus, category }) => {
   const [genresId, setGenresId] = React.useState([]);
   const [genre, setGenre] = React.useState();
   const [isTrailerPlay, setIsTrailerPlay] = React.useState(false);
+  // const filteredMovies = () => {
+  //   const a = Object.entries(movies).filter(
+  //     (movie) => movie.original_language === "ja"
+  //   );
+  //   return a;
+  // };
+
+  // console.log(filteredMovies());
   console.log(movieId);
   console.log(trailer?.key);
   console.log(genre);
