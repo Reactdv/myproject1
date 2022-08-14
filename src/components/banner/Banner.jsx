@@ -10,12 +10,17 @@ const Banner = ({ movieStatus }) => {
   const [movies, setMovies] = React.useState([]);
   const [trailer, setTrailer] = React.useState([]);
   const [movieId, setMovieId] = React.useState(0);
+  const [genresId, setGenresId] = React.useState([]);
+  const [genre, setGenre] = React.useState();
   const [isTrailerPlay, setIsTrailerPlay] = React.useState(false);
   console.log(movieId);
   console.log(trailer?.key);
-  console.log(trailer);
-  console.log(window.screen.width);
+  console.log(genre);
+  console.log(movies);
 
+  React.useEffect(() => {
+    setGenresId(movies.genre_ids);
+  }, [movies]);
   React.useEffect(() => {
     setMovieId(movies.id);
   }, [movies]);
@@ -55,8 +60,19 @@ const Banner = ({ movieStatus }) => {
       .then((res) => {
         setTrailer(res.data.results[2]);
       })
-      .catch((e) => console(e));
+      .catch((e) => console.log(e));
   }, [movieId]);
+
+  React.useEffect(() => {
+    axios
+      .get(
+        `https://api.themoviedb.org/3/genre/movie/list?api_key=6db570f91afb8be515fb7e766b64e53c&language=en-US`
+      )
+      .then((res) => {
+        setGenre(res.data.genres.find((genre) => genre.id == genresId[0]));
+      })
+      .catch((e) => console.log(e));
+  });
 
   const videoRef = React.useRef(null);
 
@@ -108,6 +124,7 @@ const Banner = ({ movieStatus }) => {
             <p>Ratings :</p>
             <p>{movies?.vote_average}</p>
           </span>
+          <h5>{genre?.name}</h5>
           <span>
             <button
               onClick={() => setIsTrailerPlay(true)}
