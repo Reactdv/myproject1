@@ -1,0 +1,41 @@
+.carousel__container {
+  padding: 1rem;
+  background: var(--bg-dark);
+}
+
+.carousel-title {
+  color: var(--clr-white);
+  text-transform: capitalize;
+  margin: 0 5rem;
+}
+
+.carousel-content {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  margin: 0 5rem;
+  overflow-y: hidden;
+  overflow-x: scroll;
+  transition: all 700ms ease;
+}
+
+.carousel-content::-webkit-scrollbar {
+  display: none;
+}
+
+.carousel__img {
+  width: 200px;
+  height: 150px;
+  transition: all 700ms ease;
+  /* margin-left: 1rem; */
+}
+
+
+.carousel-trailer {
+  width: 200px;
+  height: 200px;
+  background: pink;
+  display: none;
+}

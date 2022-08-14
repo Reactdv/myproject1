@@ -3,6 +3,7 @@ import {
   FETCH_MOVIES,
   NOW_PLAYING_MOVIE,
   ISAUTH,
+  MOVIEID,
 } from "../actionTypes/actionTypes";
 
 const reducer = (movies = [], action) => {
@@ -24,5 +25,14 @@ export const auth = (isAuth = false, action) => {
       return action.payload;
     default:
       return auth;
+  }
+};
+
+export const bannerMovieId = (movieId = "0", action) => {
+  switch (action.type) {
+    case MOVIEID:
+      return action.payload;
+    default:
+      return movieId;
   }
 };

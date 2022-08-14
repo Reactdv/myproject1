@@ -1,5 +1,5 @@
 import * as api from "../../apis";
-import { FETCH_MOVIES,NOW_PLAYING_MOVIE,ISAUTH } from "../actionTypes/actionTypes";
+import { FETCH_MOVIES,NOW_PLAYING_MOVIE,ISAUTH,MOVIEID } from "../actionTypes/actionTypes";
 
 export const getMovies = (movieStatus) => 
   async (dispatch) => {
@@ -37,3 +37,9 @@ export const getNowPlaying = (movieStatus) =>
     }
   )
 
+export const getBannerMovieId = (id)=>(
+{
+  type: MOVIEID,
+  payload: id
+}
+)
