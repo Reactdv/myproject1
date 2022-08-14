@@ -2,7 +2,7 @@ import React from "react";
 import logo from "./logo.svg";
 import "./App.css";
 import { Routes, Route, HashRouter, BrowserRouter } from "react-router-dom";
-import { Home, NotFound, Auth, Series, Anime } from "./pages";
+import { Home, NotFound, Auth, Series, Anime, TV } from "./pages";
 import { useDispatch } from "react-redux";
 import { Login, Signup, Navbar } from "./components";
 
@@ -13,7 +13,8 @@ function App() {
       <Routes>
         <Route path="/" exact element={<Home />} />
         <Route path="series" element={<Series />} />
-        <Route path="anime" element={<Anime />} />
+        {/* <Route path="anime" element={<Anime />} /> */}
+        <Route path="tv" element={<TV />} />
         <Route path="/auth" element={<Auth />}>
           <Route path="login" element={<Login />} />
           <Route path="signup" element={<Signup />} />

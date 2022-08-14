@@ -6,7 +6,7 @@ import { BsFillPlayFill } from "react-icons/bs";
 const baseUrl = "https://api.themoviedb.org/3/movie/";
 const imgPath = "https://image.tmdb.org/t/p/original";
 
-const Banner = ({ movieStatus }) => {
+const Banner = ({ movieStatus, category }) => {
   const [movies, setMovies] = React.useState([]);
   const [trailer, setTrailer] = React.useState([]);
   const [movieId, setMovieId] = React.useState(0);
@@ -17,6 +17,7 @@ const Banner = ({ movieStatus }) => {
   console.log(trailer?.key);
   console.log(genre);
   console.log(movies);
+  console.log(category);
 
   React.useEffect(() => {
     setGenresId(movies.genre_ids);
@@ -31,7 +32,7 @@ const Banner = ({ movieStatus }) => {
       const fetchData = async () => {
         await axios
           .get(
-            `https://api.themoviedb.org/3/movie/${movieStatus}?api_key=6db570f91afb8be515fb7e766b64e53c&page=3`
+            `https://api.themoviedb.org/3/${category}/${movieStatus}?api_key=6db570f91afb8be515fb7e766b64e53c&page=3`
           )
           .then((res) => {
             setMovies(
@@ -55,7 +56,7 @@ const Banner = ({ movieStatus }) => {
   React.useEffect(() => {
     axios
       .get(
-        `https://api.themoviedb.org/3/movie/${movieId}/videos?api_key=6db570f91afb8be515fb7e766b64e53c&append_to_response=videos`
+        `https://api.themoviedb.org/3/${category}/${movieId}/videos?api_key=6db570f91afb8be515fb7e766b64e53c&append_to_response=videos`
       )
       .then((res) => {
         setTrailer(res.data.results[2]);
@@ -66,13 +67,13 @@ const Banner = ({ movieStatus }) => {
   React.useEffect(() => {
     axios
       .get(
-        `https://api.themoviedb.org/3/genre/movie/list?api_key=6db570f91afb8be515fb7e766b64e53c&language=en-US`
+        `https://api.themoviedb.org/3/genre/${category}/list?api_key=6db570f91afb8be515fb7e766b64e53c&language=en-US`
       )
       .then((res) => {
         setGenre(res.data.genres.find((genre) => genre.id == genresId[0]));
       })
       .catch((e) => console.log(e));
-  });
+  }, [movieId]);
 
   const videoRef = React.useRef(null);
 
@@ -117,7 +118,9 @@ const Banner = ({ movieStatus }) => {
           alt=""
         />
         <div>
-          <h1>{movies?.title || movies?.original_title}</h1>
+          <h1>
+            {movies?.title || movies?.original_title || movies?.original_name}
+          </h1>
           {/* <p>{truncate(movies?.overview, 90)}</p> */}
           <p>{movies?.overview}</p>
           <span className="banner-ratings">
