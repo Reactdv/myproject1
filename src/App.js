@@ -4,7 +4,7 @@ import "./App.css";
 import { Routes, Route, HashRouter, BrowserRouter } from "react-router-dom";
 import { Home, NotFound, Auth, Series, Anime, TV } from "./pages";
 import { useDispatch } from "react-redux";
-import { Login, Signup, Navbar } from "./components";
+import { Login, Signup, Navbar, Account, Subscriptions } from "./components";
 
 function App() {
   return (
@@ -15,6 +15,7 @@ function App() {
         <Route path="series" element={<Series />} />
         <Route path="anime" element={<Anime />} />
         <Route path="tv" element={<TV />} />
+        <Route path="subscriptions" element={<Subscriptions />} />
         <Route path="/auth" element={<Auth />}>
           <Route path="login" element={<Login />} />
           <Route path="signup" element={<Signup />} />

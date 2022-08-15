@@ -52,8 +52,12 @@ const Navbar = () => {
         {isToggle && (
           <div className="navbar-modal__container">
             <ul>
-              <li>Account</li>
-              <li>Subscriptions</li>
+              <li>
+                <Link to="/account">Account</Link>
+              </li>
+              <li>
+                <Link to="/subscriptions">Subscriptions</Link>
+              </li>
               <li>Watchlist</li>
               <li>Settings</li>
               <li>Balance</li>
