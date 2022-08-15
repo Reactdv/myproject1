@@ -105,12 +105,13 @@ const Subscriptions = () => {
               </div>
               <div className="country__container">
                 <h4>Country</h4>
-                <input
-                  placeholder="100 ipsum country"
-                  type="text"
-                  name=""
-                  id=""
-                />
+                <select className="countries">
+                  <option value="US">US</option>
+                  <option value="PH">Philippines</option>
+                  <option value="Vietnam">Vietnam</option>
+                  <option value="Japan">Japan</option>
+                  <option value="Italy">Italy</option>
+                </select>
               </div>
             </div>
           </div>
