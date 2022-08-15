@@ -6,13 +6,14 @@ import { BsFillPlayFill } from "react-icons/bs";
 const baseUrl = "https://api.themoviedb.org/3/movie/";
 const imgPath = "https://image.tmdb.org/t/p/original";
 
-const Banner = ({ movieStatus, category }) => {
+const Banner = ({ movieStatus, category, isAnime }) => {
   const [movies, setMovies] = React.useState([]);
   const [trailer, setTrailer] = React.useState([]);
   const [movieId, setMovieId] = React.useState(0);
   const [genresId, setGenresId] = React.useState([]);
   const [genre, setGenre] = React.useState();
   const [isTrailerPlay, setIsTrailerPlay] = React.useState(false);
+  const [animeData, setAnimeData] = React.useState([]);
   // const filteredMovies = () => {
   //   const a = Object.entries(movies).filter(
   //     (movie) => movie.original_language === "ja"
@@ -26,6 +27,7 @@ const Banner = ({ movieStatus, category }) => {
   console.log(genre);
   console.log(movies);
   console.log(category);
+  console.log(animeData);
 
   React.useEffect(() => {
     setGenresId(movies.genre_ids);
@@ -102,23 +104,57 @@ const Banner = ({ movieStatus, category }) => {
       document.removeEventListener("mousedown", checkIfClickOutside);
   }, [isTrailerPlay]);
 
-  const renderTrailer = () => {
-    if (isTrailerPlay)
-      return (
-        <div className="player__wrapper banner__trailer" ref={videoRef}>
-          <ReactPlayer
-            controls
-            playing={true}
-            loop={true}
-            className="trailer__video"
-            url={`https://www.youtube.com/watch?v=${trailer?.key}`}
-          />
-        </div>
-      );
+  const fetchAnimeData = async () => {
+    return await axios
+      .get("https://api.jikan.moe/v4/top/anime")
+      .then((res) =>
+        setAnimeData(
+          res.data.data[Math.floor(Math.random() * res.data.data.length - 1)]
+        )
+      )
+      .catch((e) => console.log(e));
   };
-  return (
-    <div className="banner__container">
-      {renderTrailer()}
+
+  React.useEffect(() => {
+    fetchAnimeData();
+  }, []);
+
+  const renderAnimeBanner = () => {
+    return (
+      <div className="banner-content">
+        <img
+          className="banner-img"
+          style={{
+            objectFit: "contain",
+          }}
+          src={animeData?.images?.webp?.large_image_url}
+          alt=""
+        />
+        <div>
+          <h1>{animeData.title}</h1>
+          {/* <p>{truncate(movies?.overview, 90)}</p> */}
+          <p>{animeData.synopsis}</p>
+          <span className="banner-ratings">
+            <p>Ratings :</p>
+            <p>{animeData.rating}</p>
+          </span>
+          <h5>{`Status ${animeData.status}`}</h5>
+          <span>
+            <button
+              onClick={() => setIsTrailerPlay(true)}
+              className="banner__btn"
+            >
+              <BsFillPlayFill />
+              <p>Play</p>
+            </button>
+          </span>
+        </div>
+      </div>
+    );
+  };
+
+  const renderBanner = () => {
+    return (
       <div className="banner-content">
         <img
           className="banner-img"
@@ -147,6 +183,38 @@ const Banner = ({ movieStatus, category }) => {
           </span>
         </div>
       </div>
+    );
+  };
+
+  const renderBannerContent = () => {
+    if (isAnime) {
+      return renderAnimeBanner();
+    } else {
+      return renderBanner();
+    }
+  };
+  const renderTrailer = () => {
+    if (isTrailerPlay)
+      return (
+        <div className="player__wrapper banner__trailer" ref={videoRef}>
+          <ReactPlayer
+            controls
+            playing={true}
+            loop={true}
+            className="trailer__video"
+            url={`https://www.youtube.com/watch?v=${trailer?.key}`}
+          />
+        </div>
+      );
+  };
+
+  const renderTrailerVideo = () => {
+    if (!isAnime) return renderTrailer();
+  };
+  return (
+    <div className="banner__container">
+      {renderTrailerVideo()}
+      {renderBannerContent()}
     </div>
   );
 };

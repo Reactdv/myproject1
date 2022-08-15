@@ -13,7 +13,7 @@ const Carousel = ({ movieStatus, category, page, isAnime }) => {
   const filteredCarousel = carousel.filter(
     (item) => item.original_language === "ja"
   );
-  console.log(isAnime);
+  console.log(animeData);
   const fetchAnimeData = async () => {
     return await axios
       .get("https://api.jikan.moe/v4/top/anime")
