@@ -1,6 +1,7 @@
 import React from "react";
 import "./subscriptions.css";
 import mastercard from "../../assets/mastercard.png";
+import { AiOutlineMail } from "react-icons/ai";
 
 const Subscriptions = () => {
   return (
@@ -30,7 +31,7 @@ const Subscriptions = () => {
                   </span>
                 </div>
                 <div className="cardAndCv__wrapper">
-                  <span style={{ position: "relative",overflow: "hidden" }}>
+                  <span style={{ position: "relative", overflow: "hidden" }}>
                     <h4>Card number</h4>
 
                     <input
@@ -57,6 +58,59 @@ const Subscriptions = () => {
                     />
                   </span>
                 </div>
+              </div>
+            </div>
+            <div className="subscription-address">
+              <div className="email__wrapper">
+                <div className="subscriptions-heading">
+                  <h1> Email Address </h1>
+                  <h5>Payment receipt will be sent to this address</h5>
+                </div>
+                <div className="emailAddress__wrapper">
+                  <input
+                    className="emailAdd"
+                    type="email"
+                    placeholder="youremail@gmail.com"
+                  />
+                  <AiOutlineMail className="subscriptions-email__icon" />
+                </div>
+              </div>
+              <div className="streetAdd__container">
+                <h4>Street Address</h4>
+                <input
+                  placeholder="100 ipsum street"
+                  type="text"
+                  name=""
+                  id=""
+                />
+              </div>
+              <div className="city__container">
+                <h4>City </h4>
+                <input placeholder="ipsum city" type="text" name="" id="" />
+              </div>
+              <div className="stateProvince__container">
+                <h4>State / Province </h4>
+                <span
+                  style={{
+                    display: "flex",
+                    flexDirection: "row",
+                    justifyContent: "center",
+                    alignItems: "center",
+                    gap: "30px",
+                  }}
+                >
+                  <input placeholder="lorem" type="text" name="" id="" />
+                  <input placeholder="ipsum" type="text" name="" id="" />
+                </span>
+              </div>
+              <div className="country__container">
+                <h4>Country</h4>
+                <input
+                  placeholder="100 ipsum country"
+                  type="text"
+                  name=""
+                  id=""
+                />
               </div>
             </div>
           </div>
