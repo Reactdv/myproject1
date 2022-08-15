@@ -5,11 +5,31 @@ const Series = () => {
   return (
     <div className="series__container">
       <div className="series-content">
-        <Banner category="movie" movieStatus="popular" />
-        <Carousel category="movie" movieStatus="popular" page="1" />
-        <Carousel category="movie" movieStatus="top_rated" page="1" />
-        <Carousel category="movie" movieStatus="now_playing" page="1" />
-        <Carousel category="movie" movieStatus="upcoming" page="2" />
+        <Banner isAnime={false} category="movie" movieStatus="popular" />
+        <Carousel
+          isAnime={false}
+          category="movie"
+          movieStatus="popular"
+          page="1"
+        />
+        <Carousel
+          isAnime={false}
+          category="movie"
+          movieStatus="top_rated"
+          page="1"
+        />
+        <Carousel
+          isAnime={false}
+          category="movie"
+          movieStatus="now_playing"
+          page="1"
+        />
+        <Carousel
+          isAnime={false}
+          category="movie"
+          movieStatus="upcoming"
+          page="2"
+        />
       </div>
     </div>
   );

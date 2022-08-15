@@ -13,7 +13,7 @@ function App() {
       <Routes>
         <Route path="/" exact element={<Home />} />
         <Route path="series" element={<Series />} />
-        {/* <Route path="anime" element={<Anime />} /> */}
+        <Route path="anime" element={<Anime />} />
         <Route path="tv" element={<TV />} />
         <Route path="/auth" element={<Auth />}>
           <Route path="login" element={<Login />} />
