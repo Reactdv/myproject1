@@ -54,14 +54,32 @@ const Plans = () => {
       <div className="plans-content">
         {plansData.map((plan, index) => (
           <div
-            onClick={() =>
-              window.location.replace(
-                "https://buy.stripe.com/test_dR63eOfRFaoF19e4gg",
-                {
-                  replace: true,
-                }
-              )
-            }
+            onClick={() => {
+              if (index === 0) {
+                window.location.replace(
+                  "https://buy.stripe.com/test_28o6r06h50O5g484gi",
+                  {
+                    replace: true,
+                  }
+                );
+              }
+              if (index === 1) {
+                window.location.replace(
+                  "https://buy.stripe.com/test_dR63eOfRFaoF19e4gg",
+                  {
+                    replace: true,
+                  }
+                );
+              }
+              if (index === 2) {
+                window.location.replace(
+                  "https://buy.stripe.com/test_aEU16G6h5cwN05abIJ",
+                  {
+                    replace: true,
+                  }
+                );
+              }
+            }}
             key={index}
             className="plans"
           >
