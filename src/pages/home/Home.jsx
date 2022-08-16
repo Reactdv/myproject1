@@ -13,11 +13,32 @@ import {
 const Home = () => {
   return (
     <div className="home__container">
-      <Banner  isAnime={false}  category="movie" movieStatus="popular" />
-      <Carousel  isAnime={false} category="movie" movieStatus="popular" page="1" />
-      <Carousel isAnime={false}  category="movie" movieStatus="top_rated" page="1" />
-      <Carousel  isAnime={false} category="movie" movieStatus="now_playing" page="1" />
-      <Carousel isAnime={false}  category="movie" movieStatus="upcoming" page="2" />
+      <Banner isAnime={false} category="movie" movieStatus="popular" />
+      <Carousel
+        isAnime={false}
+        category="movie"
+        movieStatus="popular"
+        page="1"
+      />
+      <Carousel
+        isAnime={false}
+        category="movie"
+        movieStatus="top_rated"
+        page="1"
+      />
+      <Carousel
+        isAnime={false}
+        category="movie"
+        movieStatus="now_playing"
+        page="1"
+      />
+      <Carousel
+        isAnime={false}
+        category="movie"
+        movieStatus="upcoming"
+        page="2"
+      />
+      <GetStarted />
     </div>
   );
 };

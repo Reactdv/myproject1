@@ -111,7 +111,7 @@ const Subscriptions = () => {
                   <option value="Vietnam">Vietnam</option>
                   <option value="Japan">Japan</option>
                   <option value="Italy">Italy</option>
-                </select>
+                </select> 
               </div>
             </div>
           </div>

@@ -10,6 +10,25 @@ const Navbar = () => {
 
   const handleToggle = () => setIsToggle((toggled) => !toggled);
 
+  const modalRef = React.useRef();
+
+  React.useEffect(() => {
+    const checkIfClickOutside = (e) => {
+      if (
+        isToggle &&
+        modalRef.current &&
+        !modalRef.current.contains(e.target)
+      ) {
+        setIsToggle(false);
+      }
+    };
+    document.addEventListener("mousedown", checkIfClickOutside);
+
+    return () =>
+      // Cleanup the event listener
+      document.removeEventListener("mousedown", checkIfClickOutside);
+  }, [isToggle]);
+
   return (
     <div className="navbar__container">
       <div className="navbar-logo__container">
@@ -50,7 +69,7 @@ const Navbar = () => {
           </div>
         </div>
         {isToggle && (
-          <div className="navbar-modal__container">
+          <div ref={modalRef} className="navbar-modal__container">
             <ul>
               <li>
                 <Link to="/account">Account</Link>
@@ -60,7 +79,9 @@ const Navbar = () => {
               </li>
               <li>Watchlist</li>
               <li>Settings</li>
-              <li>Balance</li>
+              <li>
+                <Link to="/plans">Plans</Link>
+              </li>
             </ul>
           </div>
         )}

@@ -1,0 +1,29 @@
+.plans__container {
+  width: 100%;
+  padding: 4rem 6rem;
+  background: var(--bg-dark);
+}
+
+.plans-content {
+  height: 100vh;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+}
+
+.plans {
+  width: 250px;
+  /* height: 300px; */
+  background: var(--clr-variant);
+  border-radius: 5px;
+  color: var(--clr-white);
+  cursor: pointer;
+  padding: 2rem 0 2rem 2.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 1rem;
+}
