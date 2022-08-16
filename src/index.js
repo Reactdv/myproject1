@@ -8,13 +8,21 @@ import { Provider } from "react-redux";
 import reducers from "./utils/redux/reducers";
 import { applyMiddleware, createStore, compose } from "redux";
 import thunk from "redux-thunk";
+import { loadStripe } from "@stripe/stripe-js";
+import { Elements } from "@stripe/react-stripe-js";
+
+const stripePromise = loadStripe(
+  "pk_test_51LRsZVETUK4Gsmu7R2wwpzlmhqxfzBBR3IMyn2T9jUYk8oZhGxkOKZLt7X281dU6xDvvFsgiIjmu1NKgDMyKmBW500wR5tXQoc"
+);
 
 const store = createStore(reducers, compose(applyMiddleware(thunk, logger)));
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <Provider store={store}>
-    <App />
+    <Elements stripe={stripePromise}>
+      <App />
+    </Elements>
   </Provider>
 );
 

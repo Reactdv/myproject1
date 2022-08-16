@@ -74,9 +74,7 @@ const Navbar = () => {
               <li>
                 <Link to="/account">Account</Link>
               </li>
-              <li>
-                <Link to="/subscriptions">Subscriptions</Link>
-              </li>
+
               <li>Watchlist</li>
               <li>Settings</li>
               <li>

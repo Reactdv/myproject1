@@ -1,185 +1,131 @@
 import React from "react";
 import "./plans.css";
 import { BsFillPatchCheckFill } from "react-icons/bs";
+import { loadStripe } from "@stripe/stripe-js";
+import { CardElement, useStripe, useElements } from "@stripe/react-stripe-js";
+import { useNavigate, Link } from "react-router-dom";
+const plansData = [
+  {
+    name: "Basic Plan",
+    txt: "Monthly price  ₱99",
+    txt2: "Resolution 480p",
+    txt3: "2 accounts",
+    txt4: "Mobile and Tablet",
+  },
+  {
+    name: "Premium Plan",
+    txt: "Monthly price  ₱499",
+    txt2: "Resolution 4k HD",
+    txt3: "8 accounts",
+    txt4: "All device",
+  },
+  {
+    name: "Standard",
+    txt: "Monthly price  ₱149",
+    txt2: "Resolution 720p",
+    txt3: "4 accounts",
+    txt4: "All device",
+  },
+];
+
 const Plans = () => {
+  const stripe = useStripe();
+  const elements = useElements();
+  const navigate = useNavigate();
+  const [isSubs, setIsSubs] = React.useState(false);
+
+  const handleSubscribe = async () => {
+    if (elements == null) {
+      return;
+    }
+    const { error, paymentMethod } = await stripe.createPaymentMethod({
+      type: "card",
+      card: elements.getElement(CardElement),
+    });
+  };
+
   return (
-    <div className="plans__container">
+    <div
+      style={{
+        backgroundColor: "white",
+      }}
+      className="plans__container"
+    >
       <div className="plans-content">
-        <div className="plans">
-          <h1>Basic Plans</h1>
-          <span
-            style={{
-              display: "flex",
-              flexDirection: "row",
-              justifyContent: "flex-start",
-              alignItems: "center",
-              gap: "10px",
-              marginTop: "10px",
-            }}
+        {plansData.map((plan, index) => (
+          <div
+            onClick={() =>
+              window.location.replace(
+                "https://buy.stripe.com/test_dR63eOfRFaoF19e4gg",
+                {
+                  replace: true,
+                }
+              )
+            }
+            key={index}
+            className="plans"
           >
-            <BsFillPatchCheckFill />
-            <p>Monthly price ₱ 99</p>
-          </span>
-          <span
-            style={{
-              display: "flex",
-              flexDirection: "row",
-              justifyContent: "flex-start",
-              alignItems: "center",
-              gap: "10px",
-              marginTop: "10px",
-              //   backgroundColor: "red"
-            }}
-          >
-            <BsFillPatchCheckFill />
-            <p> Resolution 480p </p>
-          </span>
-          <span
-            style={{
-              display: "flex",
-              flexDirection: "row",
-              justifyContent: "flex-start",
-              alignItems: "center",
-              gap: "10px",
-              marginTop: "10px",
-              //   backgroundColor: "red"
-            }}
-          >
-            <BsFillPatchCheckFill />
-            <p> 2 accounts </p>
-          </span>
-          <span
-            style={{
-              display: "flex",
-              flexDirection: "row",
-              justifyContent: "flex-start",
-              alignItems: "center",
-              gap: "10px",
-              marginTop: "10px",
-              //   backgroundColor: "red"
-            }}
-          >
-            <BsFillPatchCheckFill />
-            <p>Mobile and Tablet </p>
-          </span>
-        </div>
-        <div className="plans">
-          <h1>Standard Plans</h1>
-          <span
-            style={{
-              display: "flex",
-              flexDirection: "row",
-              justifyContent: "flex-start",
-              alignItems: "center",
-              gap: "10px",
-              marginTop: "10px",
-            }}
-          >
-            <BsFillPatchCheckFill />
-            <p>Monthly price ₱ 149</p>
-          </span>
-          <span
-            style={{
-              display: "flex",
-              flexDirection: "row",
-              justifyContent: "flex-start",
-              alignItems: "center",
-              gap: "10px",
-              marginTop: "10px",
-              //   backgroundColor: "red"
-            }}
-          >
-            <BsFillPatchCheckFill />
-            <p> Resolution 720p </p>
-          </span>
-          <span
-            style={{
-              display: "flex",
-              flexDirection: "row",
-              justifyContent: "flex-start",
-              alignItems: "center",
-              gap: "10px",
-              marginTop: "10px",
-              //   backgroundColor: "red"
-            }}
-          >
-            <BsFillPatchCheckFill />
-            <p> 5 accounts </p>
-          </span>
-          <span
-            style={{
-              display: "flex",
-              flexDirection: "row",
-              justifyContent: "flex-start",
-              alignItems: "center",
-              gap: "10px",
-              marginTop: "10px",
-              //   backgroundColor: "red"
-            }}
-          >
-            <BsFillPatchCheckFill />
-            <p>Desktop </p>
-          </span>
-        </div>
-        <div className="plans">
-          <h1>Premium</h1>
-          <span
-            style={{
-              display: "flex",
-              flexDirection: "row",
-              justifyContent: "flex-start",
-              alignItems: "center",
-              gap: "10px",
-              marginTop: "10px",
-            }}
-          >
-            <BsFillPatchCheckFill />
-            <p>Monthly price ₱ 599</p>
-          </span>
-          <span
-            style={{
-              display: "flex",
-              flexDirection: "row",
-              justifyContent: "flex-start",
-              alignItems: "center",
-              gap: "10px",
-              marginTop: "10px",
-              //   backgroundColor: "red"
-            }}
-          >
-            <BsFillPatchCheckFill />
-            <p> Resolution 4k HD </p>
-          </span>
-          <span
-            style={{
-              display: "flex",
-              flexDirection: "row",
-              justifyContent: "flex-start",
-              alignItems: "center",
-              gap: "10px",
-              marginTop: "10px",
-              //   backgroundColor: "red"
-            }}
-          >
-            <BsFillPatchCheckFill />
-            <p> 8 accounts </p>
-          </span>
-          <span
-            style={{
-              display: "flex",
-              flexDirection: "row",
-              justifyContent: "flex-start",
-              alignItems: "center",
-              gap: "10px",
-              marginTop: "10px",
-              //   backgroundColor: "red"
-            }}
-          >
-            <BsFillPatchCheckFill />
-            <p> All device </p>
-          </span>
-        </div>
+            <h1>{plan.name}</h1>
+            <span
+              style={{
+                display: "flex",
+                flexDirection: "row",
+                justifyContent: "flex-start",
+                alignItems: "center",
+                gap: "10px",
+                marginTop: "10px",
+              }}
+            >
+              <BsFillPatchCheckFill />
+              <p>{plan.txt}</p>
+            </span>
+            <span
+              style={{
+                display: "flex",
+                flexDirection: "row",
+                justifyContent: "flex-start",
+                alignItems: "center",
+                gap: "10px",
+                marginTop: "10px",
+                //   backgroundColor: "red"
+              }}
+            >
+              <BsFillPatchCheckFill />
+              <p> {plan.txt2} </p>
+            </span>
+            <span
+              style={{
+                display: "flex",
+                flexDirection: "row",
+                justifyContent: "flex-start",
+                alignItems: "center",
+                gap: "10px",
+                marginTop: "10px",
+                //   backgroundColor: "red"
+              }}
+            >
+              <BsFillPatchCheckFill />
+              <p>{plan.txt3} </p>
+            </span>
+            <span
+              style={{
+                display: "flex",
+                flexDirection: "row",
+                justifyContent: "flex-start",
+                alignItems: "center",
+                gap: "10px",
+                marginTop: "10px",
+                //   backgroundColor: "red"
+              }}
+            >
+              <BsFillPatchCheckFill />
+              <p>{plan.txt4} </p>
+            </span>
+          </div>
+        ))}
       </div>
+      {/* <alig
+      nItemms className="dadad" classanime /> */}
     </div>
   );
 };
